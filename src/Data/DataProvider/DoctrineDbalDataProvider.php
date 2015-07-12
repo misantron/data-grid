@@ -6,15 +6,8 @@ use Doctrine\DBAL\Query\QueryBuilder;
 
 class DoctrineDbalDataProvider extends AbstractDataProvider
 {
+    /** @var QueryBuilder */
     protected $queryBuilder;
-
-    public function __construct($queryBuilder)
-    {
-        if(!($queryBuilder instanceof QueryBuilder)){
-            throw new \InvalidArgumentException('');
-        }
-        $this->queryBuilder = $queryBuilder;
-    }
 
     protected function initData()
     {
@@ -45,6 +38,7 @@ class DoctrineDbalDataProvider extends AbstractDataProvider
 
     protected function initKeys()
     {
-
+        $queryBuilder = clone $this->queryBuilder;
+        return $queryBuilder->getQueryPart('select');
     }
 }

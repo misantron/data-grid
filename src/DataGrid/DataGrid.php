@@ -1,23 +1,23 @@
 <?php
 
-namespace Data;
+namespace DataGrid;
 
+use Common\Component;
 use Data\DataProvider\AbstractDataProvider;
 
-class DataGrid
+class DataGrid extends Component
 {
     /** @var string */
     protected $id;
     /** @var AbstractDataProvider */
     protected $dataProvider;
+    /** @var array */
+    protected $columns = [];
 
-    protected $options = [];
-
-    public function __construct($id)
-    {
-        $this->id = $id;
-    }
-
+    /**
+     * @param AbstractDataProvider $value
+     * @return $this
+     */
     public function setDataProvider($value)
     {
         if(!($value instanceof AbstractDataProvider)){
@@ -32,10 +32,8 @@ class DataGrid
         return $this->dataProvider;
     }
 
-    public function render()
+    public function createView()
     {
-        $items = [];
-        $items[] = $this->getDataProvider()->getPagination()->render();
-        return implode("/n", $items);
+        return new DataGridView();
     }
 }

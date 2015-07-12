@@ -3,7 +3,7 @@
 namespace Data\DataProvider;
 
 use Data\Pagination;
-use Component\Component;
+use Common\Component;
 
 abstract class AbstractDataProvider extends Component implements DataProviderInterface
 {

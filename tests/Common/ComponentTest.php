@@ -1,6 +1,6 @@
 <?php
 
-namespace Component\Tests;
+namespace Common\Tests;
 
 class ComponentTest extends \PHPUnit_Framework_TestCase
 {

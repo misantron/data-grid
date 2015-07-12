@@ -4,7 +4,8 @@
         "jwage/purl": "^0.0.6",
         "psr/http-message": "~1.0",
         "symfony/http-foundation": "~2.5",
-        "doctrine/dbal": "~2.5"
+        "doctrine/dbal": "~2.5",
+        "symfony/twig-bridge": "~2.5"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.4"
@@ -12,13 +13,15 @@
     "autoload": {
         "psr-4": {
             "Data\\": "src/Data/",
-            "Component\\": "src/Component/"
+            "DataGrid\\": "src/DataGrid/",
+            "Common\\": "src/Common/"
         }
     },
     "autoload-dev": {
         "psr-4": {
             "Data\\Tests\\": "tests/Data/",
-            "Component\\Tests\\": "tests/Component/"
+            "DataGrid\\Tests\\": "tests/DataGrid/",
+            "Common\\Tests\\": "tests/Common/"
         }
     }
 }

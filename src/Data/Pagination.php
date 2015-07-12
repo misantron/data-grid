@@ -2,7 +2,7 @@
 
 namespace Data;
 
-use Component\Component;
+use Common\Component;
 use Psr\Http\Message\ServerRequestInterface;
 use Purl\Url;
 
@@ -24,10 +24,11 @@ class Pagination extends Component
     private $route;
     /** @var array */
     private $queryParams;
-
+    /** @var int */
     private $pageSize;
+    /** @var int */
     private $currentPage;
-
+    /** @var int */
     private $totalCount;
 
     private $defaultPageValue = 1;

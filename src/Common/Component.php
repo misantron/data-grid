@@ -1,6 +1,6 @@
 <?php
 
-namespace Component;
+namespace Common;
 
 class Component
 {
@@ -9,6 +9,9 @@ class Component
         $this->configure($config);
     }
 
+    /**
+     * @param array $config
+     */
     protected function configure($config)
     {
         foreach($config as $key => $value){
