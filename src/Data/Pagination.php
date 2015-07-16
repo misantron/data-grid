@@ -3,8 +3,8 @@
 namespace Data;
 
 use Common\Component;
-use Psr\Http\Message\ServerRequestInterface;
 use Purl\Url;
+use Symfony\Component\HttpFoundation\Request;
 
 class Pagination extends Component
 {
@@ -36,16 +36,16 @@ class Pagination extends Component
     private $defaultPageSize = 20;
 
     /**
-     * @param ServerRequestInterface $value
+     * @param Request $value
      * @return $this
      */
     public function setRequest($value)
     {
-        if($value instanceof ServerRequestInterface){
-            $this->scheme = $value->getUri()->getHost();
-            $this->host = $value->getUri()->getHost();
-            $this->route = $value->getUri()->getPath();
-            $this->queryParams = $value->getQueryParams();
+        if($value instanceof Request){
+            $this->scheme = $value->getScheme();
+            $this->host = $value->getHost();
+            $this->route = $value->getBasePath();
+            $this->setQueryParams($value->getQueryString());
         }
         return $this;
     }
@@ -56,7 +56,14 @@ class Pagination extends Component
      */
     public function setQueryParams($value)
     {
-        $this->queryParams = $value;
+        $queryParams = [];
+        if(is_string($value)){
+            foreach(explode('&', $value) as $param){
+                $keyValuePair = explode('=', $param, 2);
+                $queryParams[$keyValuePair[0]] = $keyValuePair[1];
+            }
+        }
+        $this->queryParams = $queryParams;
         return $this;
     }
 
