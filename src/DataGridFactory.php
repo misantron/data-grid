@@ -5,7 +5,7 @@ namespace DataGrid;
 class DataGridFactory
 {
     /** @var array */
-    private static $cache = [];
+    protected $cache = [];
     /** @var string */
     protected $defaultId = 'dataGrid';
 
@@ -16,10 +16,10 @@ class DataGridFactory
     public function create($config = [])
     {
         $dataGridId = $this->resolveId($config);
-        if(!isset(static::$cache[$dataGridId])){
-            static::$cache[$dataGridId] = new DataGrid($config);
+        if(!isset($this->cache[$dataGridId])){
+            $this->cache[$dataGridId] = new DataGrid($config);
         }
-        return static::$cache[$dataGridId];
+        return $this->cache[$dataGridId];
     }
 
     /**

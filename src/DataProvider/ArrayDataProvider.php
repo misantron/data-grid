@@ -1,17 +1,9 @@
 <?php
 
-namespace Data\DataProvider;
+namespace DataGrid\DataProvider;
 
 class ArrayDataProvider extends AbstractDataProvider
 {
-    /** @var array */
-    protected $data;
-
-    public function __construct($array)
-    {
-        $this->data = $array;
-    }
-
     protected function initData()
     {
         $data = $this->data;

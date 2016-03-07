@@ -1,12 +1,10 @@
 <?php
 
-namespace Data\Twig;
+namespace DataGrid\Twig;
 
 class DataGridExtension extends \Twig_Extension
 {
-    /**
-     * @var \Twig_Environment
-     */
+    /** @var \Twig_Environment */
     private $environment;
 
     /**

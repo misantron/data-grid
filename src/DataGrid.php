@@ -20,8 +20,8 @@ class DataGrid extends Component
      */
     public function setDataProvider($value)
     {
-        if(!($value instanceof AbstractDataProvider)){
-            throw new \InvalidArgumentException('Data provider should be instance of DataProviderInterface');
+        if(!$value instanceof AbstractDataProvider){
+            throw new \InvalidArgumentException('Data provider should be instance of AbstractDataProvider');
         }
         $this->dataProvider = $value;
         return $this;

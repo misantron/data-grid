@@ -1,6 +1,6 @@
 <?php
 
-namespace Data\DataProvider;
+namespace DataGrid\DataProvider;
 
 use Doctrine\DBAL\Query\QueryBuilder;
 
@@ -33,7 +33,7 @@ class DoctrineDbalDataProvider extends AbstractDataProvider
             ->resetQueryParts(['select', 'orderBy', 'groupBy'])
             ->select('COUNT(1)')
         ;
-        return (int) $queryBuilder->execute()->fetchColumn();
+        return (int)$queryBuilder->execute()->fetchColumn();
     }
 
     protected function initKeys()

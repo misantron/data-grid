@@ -1,6 +1,6 @@
 <?php
 
-namespace Data;
+namespace DataGrid;
 
 use Common\Component;
 use Purl\Url;
@@ -84,7 +84,7 @@ class Pagination extends Component
      */
     public function setPageSize($value)
     {
-        $pageSize = $value < 1 ? 1 : (int) $value;
+        $pageSize = $value < 1 ? 1 : (int)$value;
         $this->pageSize = $pageSize;
         return $this;
     }
@@ -110,7 +110,7 @@ class Pagination extends Component
             return $this->totalCount > 0 ? 1 : 0;
         } else {
             $totalCount = $this->totalCount < 0 ? 0 : (int) $this->totalCount;
-            return (int) ceil(($totalCount + $pageSize - 1) / $pageSize);
+            return (int)ceil(($totalCount + $pageSize - 1) / $pageSize);
         }
     }
 
@@ -186,6 +186,6 @@ class Pagination extends Component
             return $this->defaultPageValue;
         }
         return isset($this->queryParams[$this->pageParamName]) & is_scalar($this->queryParams[$this->pageParamName]) ?
-            (int) $this->queryParams[$this->pageParamName] : $this->defaultPageValue;
+            (int)$this->queryParams[$this->pageParamName] : $this->defaultPageValue;
     }
 }

@@ -1,17 +1,18 @@
 <?php
 
-namespace Data\DataProvider;
+namespace DataGrid\DataProvider;
 
-use Data\Pagination;
+use DataGrid\Pagination;
 use Common\Component;
 
 abstract class AbstractDataProvider extends Component implements DataProviderInterface
 {
-    private $data;
-    private $keys;
-    private $totalDataCount;
+    protected $data;
+    protected $keys;
+    /** @var int */
+    protected $totalDataCount;
     /** @var Pagination|bool */
-    private $pagination;
+    protected $pagination;
 
     abstract protected function initData();
 

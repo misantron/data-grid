@@ -18,7 +18,7 @@ class Component
             if(property_exists($this, $key)){
                 $setterMethod = 'set' . ucfirst($key);
                 if(method_exists($this, $setterMethod)){
-                    $this->{$setterMethod}($value);
+                    call_user_func_array([$this, $setterMethod], [$value]);
                 } else {
                     $this->{$key} = $value;
                 }

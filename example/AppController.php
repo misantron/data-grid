@@ -1,10 +1,10 @@
 <?php
 
 use DataGrid\DataGridFactory;
-use Data\DataProvider\DoctrineDbalDataProvider;
-use Data\Pagination;
+use DataGrid\DataProvider\DoctrineDbalDataProvider;
+use DataGrid\Pagination;
 use Doctrine\DBAL\Connection;
-use Psr\Http\Message\ServerRequestInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class AppController
@@ -20,7 +20,7 @@ class AppController
         $this->dataGridFactory = $dataGridFactory;
     }
 
-    public function actionIndex(ServerRequestInterface $request)
+    public function actionIndex(Request $request)
     {
         $queryBuilder = $this->connection->createQueryBuilder();
         $queryBuilder
